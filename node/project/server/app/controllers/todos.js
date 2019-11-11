@@ -28,7 +28,7 @@ module.exports = function (app, config) {
     });
 
     router.route('/todos/user/:id').get((req, res, next) => {
-        logger.log('info', 'Get all user todos' + req.params.id);
+        logger.log('info', 'Get all user todos', req.params.id);
 
         var query = Todo.find()
             .sort(req.query.order)
@@ -47,14 +47,14 @@ module.exports = function (app, config) {
     });
 
     router.route('/todos/:id').get((req, res, next) => {
-        logger.log('info', 'Get Todo %s'+  req.params.id);
+        logger.log('info', 'Get Todo %s' + req.params.id);
 
         Todo.findById(req.params.id)
             .then(todos => {
                 if (todos) {
                     res.status(200).json(todos);
                 } else {
-                    res.status(404).json({ message: "No Todos found" });
+                    res.status(404).json({ message: "No Todo found" });
                 }
             })
             .catch(error => {
@@ -64,8 +64,9 @@ module.exports = function (app, config) {
 
     });
 
+
     router.route('/todos/:id').put((req, res, next) => {
-        logger.log('info', 'Get Todo %s' +  req.params.id);
+        logger.log('info', 'Get Todo %s' + req.params.id);
 
         Todo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, multi: false })
             .then(Todo => {
@@ -77,8 +78,12 @@ module.exports = function (app, config) {
 
 
     });
+   
+ 
+
     router.route('/todos').post((req, res, next) => {
         logger.log('info', 'Create Todo');
+
         var todo = new Todo(req.body);
         todo.save()
             .then(result => {
@@ -90,8 +95,9 @@ module.exports = function (app, config) {
 
     });
 
+
     router.route('/todos/:id').delete((req, res, next) => {
-        logger.log('info', 'Get Todo %s' +  req.params.id);
+        logger.log('info', 'Get Todo %s', req.params.id);
 
         Todo.remove({ _id: req.params.id })
             .then(Todo => {

@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-
+ 
     // Project configuration. 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                 NODE_ENV: 'production'
             }
         },
-
+  
             jshint: {
                 options: {
                     reporter: require('jshint-stylish'),
@@ -19,31 +19,27 @@ module.exports = function (grunt) {
                 },
                 all: ['Grunfile.js', 'config/*.js']
             },
-
+  
             nodemon: {
                 dev: {
                     script: 'index.js'
                 }
             },
     });
-
+  
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-nodemon');
     grunt.loadNpmTasks('grunt-env');
-
-
-
+  
+  
     grunt.registerTask('default', [
         'env:dev',
         'jshint',
         'nodemon'
     ]);
-
-
-
-
+  
     grunt.registerTask('production', [
         'env:production',
         'nodemon'
     ]);
-};
+  };
