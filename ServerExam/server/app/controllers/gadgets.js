@@ -7,6 +7,7 @@ var express = require('express'),
 
 module.exports = function (app, config) {
     app.use('/api', router);//middleware that installs the router all routes will go below here in this loop only 
+    console.log('here')
     router.route('/gadgets').get((req, res, next) => {
         logger.log('info', 'Get all gadgets');
         var query = Gadget.find()
