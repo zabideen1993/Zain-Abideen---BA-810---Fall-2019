@@ -4,7 +4,7 @@ import {DataServices} from './data-services';
 export class Widget {
 constructor(data) {
         this.data = data;
-        this.WIDGET_SERVICE = 'widgetss';
+        this.WIDGET_SERVICE = 'widgets';
     }
  newWidget(){
         this.selectedWidget = {};
