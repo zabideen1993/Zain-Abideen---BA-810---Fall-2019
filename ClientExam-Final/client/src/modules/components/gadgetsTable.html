@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-primary" click.trigger="newGadget()" style="margin-bottom:10px;">Create Gadget</button>
+    <button class="btn btn-primary" click.trigger="newWidget()" style="margin-bottom:10px;">Create Widget</button>
     <table class="table">
         <thead>
             <!-- <tr>
@@ -9,7 +9,7 @@
                 </th>
             </tr> -->
             <tr>
-                 <th scope="col">Yoo</th>
+                 <th scope="col">Boo</th>
                 <th scope="col">Hoo</th>
                 <!-- <th scope="col">Status</th> -->
                         <th></th>
@@ -17,16 +17,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr repeat.for="gadget of gadget.gadgetsArray | filterGadgets:isCheckedCompleted">
-                    <td scope="row" click.delegate="editGadget(gadget)">${gadget.Yoo}</td>
-                <td scope="row" click.delegate="editGadget(gadget)">${gadget.Hoo}</td>
+            <tr repeat.for="widget of widget.widgetsArray | filterWidgets:isCheckedCompleted">
+                    <td scope="row" click.delegate="editWidget(widget)">${widget.Boo}</td>
+                <td scope="row" click.delegate="editWidget(widget)">${widget.Hoo}</td>
                 <!-- <td><select change.delegate="updateGadget(gadget)" value.bind="gadget.status" class="form-control"
                         id="gadgetStatus">
                         <option repeat.for="status of statuses" value.bind="status">${status}</option>
                     </select></td> -->
                 <!-- <td>${gadget.dateDue | dateFormat}</td> -->
                 <td>
-                    <button click.trigger="deleteGadget(gadget)" type="button" class="btn btn-danger btn-sm">Delete</button>
+                    <button click.trigger="deleteWidget(widget)" type="button" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
         </tbody>
