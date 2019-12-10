@@ -1,0 +1,25 @@
+<template>
+    <form>
+        <div class="form-group">
+            <label for="gadgetInput">Yoo</label>
+            <input value.bind="gadget.selectedGadget.Yoo" type="text" class="form-control" placeholder="Yoo title">
+        </div>
+      
+                    <div class ="form-group">
+                <label for="gadgetDetail">Hoo</label>
+                <textarea value.bind="gadget.selectedGadget.Hoo" class="form-control" placeholder="Hoo Number" id="gadgetDetail" rows="1"></textarea>
+             <!-- <div class="form-group">
+                <label for="gadgetStatus">Status</label>
+                <select value.bind="gadget.selectedGadget.status" class="form-control" id="gadgetStatus">
+                    <option repeat.for="status of statuses" model.bind="status">${status}</option>
+                </select>
+            </div>
+        </div> -->
+        <!-- <div class="form-group">
+                <label for="gadgetStatus">Due Date</label>
+                <flat-picker controlid="startdate" value.bind="gadget.selectedGadget.dateDue"></flat-picker> -->
+            </div>
+            <button class="btn btn-primary" click.trigger="saveGadget()">Save</button>
+            <button class="btn btn-primary" click.trigger="Cancel()">Cancel</button>
+    </form>
+</template>
